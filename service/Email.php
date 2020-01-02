@@ -1,5 +1,6 @@
 <?php
 require("../PHPMailer_5.2.0/class.PHPMailer.php");
+
 class Email{
     public function send($name, $email, $phone, $message){
 
@@ -12,7 +13,7 @@ class Email{
         $mail->From = "noreply@nils-photography.com";
         $mail->FromName = "Nils Photography <noreply@nils-photography.com>";
         $mail->AddAddress($email);           
-        $mail->AddReplyTo("info@nils-photography.com", "Information");
+        $mail->AddReplyTo("contactus@nils-photography.com", "Information");
         $mail->IsHTML(true);  
         $mail->Subject = "Query about Nils Photography";
         $email_template_string = file_get_contents('email_template.html', true);

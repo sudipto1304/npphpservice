@@ -1,9 +1,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/service/Email.php"); 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$contact = $_POST["mobile"];
-$message = $_POST["message"];
+$name = urlencode($_POST["name"]);
+$email = urlencode($_POST["email"]);
+$contact = urlencode($_POST["mobile"]);
+$message = urlencode($_POST["message"]);
 
 $sendMail = new Email();
 
