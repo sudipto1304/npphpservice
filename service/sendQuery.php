@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 require_once($_SERVER['DOCUMENT_ROOT']."/service/Email.php"); 
-$name = urlencode($_POST["name"]);
+$name = ($_POST["name"]);
 $email = ($_POST["email"]);
 $contact = urlencode($_POST["mobile"]);
 $message = urlencode($_POST["message"]);
