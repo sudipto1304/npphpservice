@@ -16,7 +16,7 @@ $sendMail = new Email();
         echo json_decode($response);
         die();
     }
-    $response='[{"message" : sendMail->send($name, $email, $contact, $message)}]' ;
+    $response='[{"message" : $sendMail->send($name, $email, $contact, $message)}]' ;
     echo json_decode($response);
     
 
