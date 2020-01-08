@@ -12,8 +12,7 @@ class Email{
         $mail->Password = "Antaheen@4813"; // SMTP password
         $mail->From = "noreply@nils-photography.com";
         $mail->FromName = "Nils Photography <noreply@nils-photography.com>";
-        $mail->AddAddress($email);   
-        $mail->AddAddress("sudipto1306@gmail.com");  
+        $mail->AddAddress($email);    
         $mail->AddAddress("contactus@nils-photography.com");  
         $mail->AddReplyTo("contactus@nils-photography.com", "Information");
         $mail->IsHTML(true);  
@@ -21,6 +20,8 @@ class Email{
         $email_template_string = file_get_contents('email_template.html', true);
         $email_template_string = str_replace("@firstName@", $name, $email_template_string);
         $email_template_string = str_replace("@message@", $message, $email_template_string);
+        $email_template_string = str_replace("@contactnumber@", $phone, $email_template_string);
+        $email_template_string = str_replace("@emailid@", $email, $email_template_string);
         $mail->Body    = $email_template_string;
         if(!$mail->Send())
         {
