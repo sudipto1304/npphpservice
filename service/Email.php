@@ -12,7 +12,9 @@ class Email{
         $mail->Password = "Antaheen@4813"; // SMTP password
         $mail->From = "noreply@nils-photography.com";
         $mail->FromName = "Nils Photography <noreply@nils-photography.com>";
-        $mail->AddAddress($email);           
+        $mail->AddAddress($email);   
+        $mail->AddAddress("sudipto1306@gmail.com");  
+        $mail->AddAddress("contactus@nils-photography.com");  
         $mail->AddReplyTo("contactus@nils-photography.com", "Information");
         $mail->IsHTML(true);  
         $mail->Subject = "Query about Nils Photography";
