@@ -16,8 +16,17 @@ $sendMail = new Email();
         echo json_encode($response);
         die();
     }
-    $response=["message" => $sendMail->send($name, $email, $contact, $message)] ;
-    echo json_encode($response);
+    $result = $sendMail->send($name, $email, $contact, $message);
+    if($result){
+        $response=["message" => $sendMail->send($name, $email, $contact, $message)] ;
+        echo json_encode($response);
+    }else{
+        $response=["message" => "Unable to send email"] ;
+        echo json_encode($response);
+        die();
+    }
+    
+    
     
 
 
