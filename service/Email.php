@@ -22,11 +22,10 @@ class Email{
         $mail->Body    = $email_template_string;
         if(!$mail->Send())
         {
-            echo "Message could not be sent.";
-            echo "Mailer Error: " . $mail->ErrorInfo;
+            return "Mailer Error: " . $mail->ErrorInfo;
             exit;
         }else{
-            echo "We received your message";
+            return "We received your message";
         }
 
         
