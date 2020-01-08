@@ -12,11 +12,11 @@ $sendMail = new Email();
 
 
     if(empty($name) || empty($email) || empty($contact) || empty($message)){
-        $response=["message": "All fields are mandatory"] ;
+        $response=[{"message" : "All fields are mandatory"}] ;
         return json_decode($response);
         die();
     }
-    $response=["message": sendMail->send($name, $email, $contact, $message)] ;
+    $response=[{"message" : sendMail->send($name, $email, $contact, $message)}] ;
     return json_decode($response);
     
 
