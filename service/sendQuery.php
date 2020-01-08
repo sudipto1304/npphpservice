@@ -5,19 +5,19 @@ $name = ($_POST["name"]);
 $email = ($_POST["email"]);
 $contact = urlencode($_POST["mobile"]);
 $message = urlencode($_POST["message"]);
-$response = '[]';
+$response = [];
 
 
 $sendMail = new Email();
 
 
     if(empty($name) || empty($email) || empty($contact) || empty($message)){
-        $response='["message": "All fields are mandatory"]' ;
-        return $response;
+        $response=["message": "All fields are mandatory"] ;
+        return json_decode($response);
         die();
     }
-    $response='["message": sendMail->send($name, $email, $contact, $message)]' ;
-    return $response;
+    $response=["message": sendMail->send($name, $email, $contact, $message)] ;
+    return json_decode($response);
     
 
 
