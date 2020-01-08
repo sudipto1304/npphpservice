@@ -25,9 +25,11 @@ class Email{
             echo "Message could not be sent.";
             echo "Mailer Error: " . $mail->ErrorInfo;
             exit;
+        }else{
+            echo "We received your message";
         }
 
-        echo "We received your message";
+        
 
 
         // $from = "noreply@nils-photography.com"; // this is the sender's Email address
