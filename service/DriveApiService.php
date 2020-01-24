@@ -3,7 +3,7 @@
 class DriveApiManager{
     
     public function getContent(){
-        getAccessToken();
+        $this->getAccessToken();
     }
     
     
