@@ -26,7 +26,7 @@ class DriveApiManager{
             
         $jsonStrig = file_get_contents('https://www.googleapis.com/oauth2/v4/token', false, $context);
         $json = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', $jsonStrig), true);
-        echo $json;
+        var_dump($json);
     }
     
 }
