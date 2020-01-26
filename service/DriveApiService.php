@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/service/constant.php"); 
+require_once($_SERVER['DOCUMENT_ROOT']."/const/constant.php"); 
 class DriveApiManager{
     
     static $accessToken = "";
