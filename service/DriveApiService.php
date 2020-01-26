@@ -15,9 +15,11 @@ class DriveApiManager{
                     );
         $context  = stream_context_create($opts);
         $jsonStrig = @file_get_contents($_url, false, $context);
+        echo $jsonStrig;
         if(!$jsonStrig){
             $this->getAccessToken();
             $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?access_token=".$accessToken;
+            echo $_url;
             $jsonStrig = @file_get_contents($_url, false, $context);
         }
         
