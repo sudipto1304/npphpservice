@@ -13,8 +13,8 @@ class DriveApiManager{
                         'method'  => 'GET'
                         )
                     );
-        $context  = stream_context_create($opts, false, $context);
-        $jsonStrig = file_get_contents($_url);
+        $context  = stream_context_create($opts);
+        $jsonStrig = file_get_contents($_url, false, $context);
         $json = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', $jsonStrig), true);
         var_dump($json);
     }
