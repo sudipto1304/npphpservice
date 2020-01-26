@@ -9,6 +9,11 @@ class DriveApiManager{
         //$this->getAccessToken();
         
         $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?access_token=".$accessToken;
+        $opts = array('http' =>array(
+                        'method'  => 'GET'
+                        )
+                    );
+        $context  = stream_context_create($opts, false, $context);
         $jsonStrig = file_get_contents($_url);
         $json = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', $jsonStrig), true);
         var_dump($json);
