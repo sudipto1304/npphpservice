@@ -28,11 +28,11 @@ class DriveApiManager{
         $json = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', $jsonStrig), true);
         for($i=0; $i<count($json['items']); $i++){
             $deliveryImage = new DeliveryImage();
-            var_dump($json['items'][i]);
-            $deliveryImage->setViewLink("https://drive.google.com/file/d/".$json['items'][i]['id']."/view");
+            var_dump($json['items'][$i]);
+            $deliveryImage->setViewLink("https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
             $deliveryImages[] = $deliveryImage;
         }
-        
+        var_dump($json['items'][$deliveryImages]);
     }
     
     
