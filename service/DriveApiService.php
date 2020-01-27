@@ -27,7 +27,12 @@ class DriveApiManager{
         for($i=0; $i<count($json['items']); $i++){
             $deliveryImages[]=array('link' => "https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
        }
-        $deliveryImagesResponse[] = array('nextPageLink'=> $json['nextLink'], 'links'=>$deliveryImages);
+        if($json['nextLink']){
+            $deliveryImagesResponse[] = array('nextPageLink'=> $json['nextLink'], 'links'=>$deliveryImages);
+        }else{
+            $deliveryImagesResponse[] = array('links'=>$deliveryImages);
+        }
+        
         return json_encode($deliveryImagesResponse, JSON_UNESCAPED_SLASHES);
     }
     
@@ -49,7 +54,11 @@ class DriveApiManager{
         for($i=0; $i<count($json['items']); $i++){
             $deliveryImages[]=array('link' => "https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
        }
-        $deliveryImagesResponse[] = array('nextPageLink'=> $json['nextLink'], 'links'=>$deliveryImages);
+        if($json['nextLink']){
+            $deliveryImagesResponse[] = array('nextPageLink'=> $json['nextLink'], 'links'=>$deliveryImages);
+        }else{
+            $deliveryImagesResponse[] = array('links'=>$deliveryImages);
+        }
         return json_encode($deliveryImagesResponse, JSON_UNESCAPED_SLASHES);
     }
     
