@@ -31,7 +31,7 @@ class DriveApiManager{
             $deliveryImage->setViewLink("https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
             $deliveryImages[] = $deliveryImage;
         }
-        return json_decode($deliveryImages);
+        return json_encode($deliveryImages);
     }
     
     
