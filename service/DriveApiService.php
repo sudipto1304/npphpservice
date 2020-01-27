@@ -20,7 +20,7 @@ class DriveApiManager{
         echo $jsonStrig;
         if(!$jsonStrig){
             $this->getAccessToken(); 
-            $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?access_token=".$this->accessToken;
+            $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?maxResults=20&access_token=".$this->accessToken;
             $jsonStrig = @file_get_contents($_url, false, $context);
         }
         
