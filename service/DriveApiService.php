@@ -26,11 +26,7 @@ class DriveApiManager{
         
         $json = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', $jsonStrig), true);
         for($i=0; $i<count($json['items']); $i++){
-            $deliveryImage = new DeliveryImage();
-            $deliveryImage->setViewLink("https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
-            $deliveryImages[
-                'link' =>$deliveryImage
-            ];
+            $deliveryImages[]=array('link' => "https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
        }
         return json_encode($deliveryImages, JSON_UNESCAPED_SLASHES);
     }
