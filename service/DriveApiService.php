@@ -1,5 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/const/constant.php"); 
+require_once($_SERVER['DOCUMENT_ROOT']."/service/DeliveryImageContent.php"); 
+
 class DriveApiManager{
     
     static $accessToken = "";
@@ -7,7 +9,7 @@ class DriveApiManager{
     
     public function getContent(){
         //$this->getAccessToken();
-        
+        $deliveryImages = array();
         $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?access_token=".$this->accessToken;
         $opts = array('http' =>array(
                         'method'  => 'GET'
@@ -24,7 +26,12 @@ class DriveApiManager{
         }
         
         $json = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', $jsonStrig), true);
-        var_dump($json);
+        for($i=0; $i<count($json['items']); $i++){
+            $deliveryImage = new DeliveryImage();
+            $deliveryImage->setViewLink("https://drive.google.com/file/d/".$json['items'][i]['id']."/view");
+            $deliveryImages[] = $deliveryImage;
+        }
+        var_dump($deliveryImages);
     }
     
     
