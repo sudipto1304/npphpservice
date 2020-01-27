@@ -10,7 +10,7 @@ class DriveApiManager{
     public function getContent(){
         //$this->getAccessToken();
         $deliveryImages = array();
-        $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?access_token=".$this->accessToken;
+        $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?maxResults=20&access_token=".$this->accessToken;
         $opts = array('http' =>array(
                         'method'  => 'GET'
                         )
