@@ -21,7 +21,6 @@ class DriveApiManager{
         if(!$jsonStrig){
             $this->getAccessToken();
             $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?access_token=".$this->accessToken;
-            echo $_url;
             $jsonStrig = @file_get_contents($_url, false, $context);
         }
         
@@ -31,7 +30,7 @@ class DriveApiManager{
             $deliveryImage->setViewLink("https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
             $deliveryImages[] = $deliveryImage;
         }
-        return json_encode($deliveryImages);
+        return json_encode($deliveryImages, JSON_UNESCAPED_SLASHES);
     }
     
     
