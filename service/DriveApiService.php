@@ -8,7 +8,7 @@ class DriveApiManager{
     
     
     public function getContent(){
-        //$this->getAccessToken();
+        $deliveryImagesResponse = array();
         $deliveryImages = array();
         $_url = "https://www.googleapis.com/drive/v2/files/"."0B_ioEFehPeW5amVGYXYxUlpZbVU"."/children?maxResults=20&access_token=".$this->accessToken;
         $opts = array('http' =>array(
@@ -28,9 +28,13 @@ class DriveApiManager{
         for($i=0; $i<count($json['items']); $i++){
             $deliveryImages[]=array('link' => "https://drive.google.com/file/d/".$json['items'][$i]['id']."/view");
        }
-        return json_encode($deliveryImages, JSON_UNESCAPED_SLASHES);
+        $deliveryImagesResponse[] = array('nextPageLink'=> $json['nextLink'], 'links'=>$deliveryImages);
+        return json_encode($deliveryImagesResponse, JSON_UNESCAPED_SLASHES);
     }
     
+    public function getNextPageContent(){
+        
+    }
     
     private function getAccessToken(){
         $postdata = http_build_query(array(
