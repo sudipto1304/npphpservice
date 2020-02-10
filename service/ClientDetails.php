@@ -6,18 +6,22 @@ class ClientDetails{
     
     function getClientDriveId($token){
         $driveId="";
+        $projectId="";
         $dataSource = new DataSource();
         $conn = $dataSource->getConnection();
-        $sql = "SELECT DRIVE_ID from np_customer where TOKEN=?";
+        $sql = "SELECT DRIVE_ID, PROJECT_ID from np_customer where TOKEN=?";
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("s", $token);
             $stmt->execute();
-            $stmt->bind_result($driveId);
+            $stmt->bind_result($driveId, $projectId);
             $stmt->fetch();
             $stmt->close();
         }
         $dataSource->closeConnection($conn);
-        return $driveId;
+        $response = array('driveId' => $driveId,
+                          'projectId' => $projectId
+                    );
+        return $response;
     }
 }
 

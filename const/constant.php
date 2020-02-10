@@ -8,5 +8,7 @@ define("DB_HOST", "localhost:3306");
 define("DB_USER", "npadmin");
 define("DB_PASS", "Maverick@4813");
 define("DB", "npdata");
+define("GITLAB_USERID", "sudipto1304");
+define("GITLAB_PASSWORD", "Antaheen@4813");
 #define("HOST", "http://localhost:9901");
 ?>
